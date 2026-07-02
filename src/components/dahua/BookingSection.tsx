@@ -83,7 +83,7 @@ export function BookingSection() {
               <div className="contact-icon">{c.icon}</div>
               <div className="contact-title">{c.title}</div>
               <div className="contact-info">{c.info}</div>
-              
+              <a
                 href={c.href}
                 className="contact-link"
                 {...(c.external ? { target: "_blank", rel: "noreferrer" } : {})}
