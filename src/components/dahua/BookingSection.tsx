@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { bookingOptions } from "@/data/dahua";
 import { SectionHeader } from "./SectionHeader";
-import { supabase } from "@/lib/supabase";
 
 const contacts = [
   {
@@ -40,20 +39,6 @@ export function BookingSection() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
-    const { error: dbError } = await supabase.from("bookings").insert({
-      name: form.name,
-      phone: form.phone,
-      package: form.pkg,
-      note: form.note,
-      source: "dhl1688",
-    });
-
-    if (dbError) {
-      setError("預約儲存失敗，請稍後再試或直接來電。");
-      setLoading(false);
-      return;
-    }
 
     const msg = `【大華醫事檢驗所預約諮詢】\n姓名：${form.name}\n電話：${form.phone}\n諮詢套組：${form.pkg}\n備註：${form.note}`;
     window.open(
