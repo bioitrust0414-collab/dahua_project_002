@@ -1,4 +1,4 @@
-@keyframes mal1688PulseGlow {
+@keyframes mal1688PulseGlowWarm {
   0%,
   100% {
     opacity: 0.35;
@@ -6,10 +6,10 @@
   }
   50% {
     opacity: 0.5;
-    transform: scale(1.1) translate(-48%, -48%);
+    transform: scale(1.08) translate(-48%, -48%);
   }
 }
 
-.mal1688-glow {
-  animation: mal1688PulseGlow 8s ease-in-out infinite;
+.mal1688-glow-warm {
+  animation: mal1688PulseGlowWarm 8s ease-in-out infinite;
 }
