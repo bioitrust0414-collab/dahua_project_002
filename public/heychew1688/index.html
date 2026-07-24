@@ -682,6 +682,9 @@
         }
 
         window.onload = function() {
+            // 初始化首頁
+            switchPage('home');
+            // 預先渲染商品列表（但不顯示）
             filterProducts('all');
             updateCartDOM();
         }
