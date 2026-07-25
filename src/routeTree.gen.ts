@@ -11,6 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Mal1688RouteImport } from './routes/mal1688'
+import { Route as Mal1688IndexRouteImport } from './routes/mal1688/index'
+import { Route as Mal1688AcademyRouteImport } from './routes/mal1688/academy'
+import { Route as Mal1688LabRouteImport } from './routes/mal1688/lab'
+import { Route as Mal1688PricingRouteImport } from './routes/mal1688/pricing'
+import { Route as Mal1688ScienceRouteImport } from './routes/mal1688/science'
+import { Route as Mal1688SolutionsRouteImport } from './routes/mal1688/solutions'
+import { Route as Mal1688StoryRouteImport } from './routes/mal1688/story'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +29,113 @@ const Mal1688Route = Mal1688RouteImport.update({
   path: '/mal1688',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Mal1688IndexRoute = Mal1688IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688AcademyRoute = Mal1688AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688LabRoute = Mal1688LabRouteImport.update({
+  id: '/lab',
+  path: '/lab',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688PricingRoute = Mal1688PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688ScienceRoute = Mal1688ScienceRouteImport.update({
+  id: '/science',
+  path: '/science',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688SolutionsRoute = Mal1688SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => Mal1688Route,
+} as any)
+const Mal1688StoryRoute = Mal1688StoryRouteImport.update({
+  id: '/story',
+  path: '/story',
+  getParentRoute: () => Mal1688Route,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/mal1688': typeof Mal1688Route
+  '/mal1688': typeof Mal1688RouteWithChildren
+  '/mal1688/academy': typeof Mal1688AcademyRoute
+  '/mal1688/lab': typeof Mal1688LabRoute
+  '/mal1688/pricing': typeof Mal1688PricingRoute
+  '/mal1688/science': typeof Mal1688ScienceRoute
+  '/mal1688/solutions': typeof Mal1688SolutionsRoute
+  '/mal1688/story': typeof Mal1688StoryRoute
+  '/mal1688/': typeof Mal1688IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/mal1688': typeof Mal1688Route
+  '/mal1688/academy': typeof Mal1688AcademyRoute
+  '/mal1688/lab': typeof Mal1688LabRoute
+  '/mal1688/pricing': typeof Mal1688PricingRoute
+  '/mal1688/science': typeof Mal1688ScienceRoute
+  '/mal1688/solutions': typeof Mal1688SolutionsRoute
+  '/mal1688/story': typeof Mal1688StoryRoute
+  '/mal1688': typeof Mal1688IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/mal1688': typeof Mal1688Route
+  '/mal1688': typeof Mal1688RouteWithChildren
+  '/mal1688/academy': typeof Mal1688AcademyRoute
+  '/mal1688/lab': typeof Mal1688LabRoute
+  '/mal1688/pricing': typeof Mal1688PricingRoute
+  '/mal1688/science': typeof Mal1688ScienceRoute
+  '/mal1688/solutions': typeof Mal1688SolutionsRoute
+  '/mal1688/story': typeof Mal1688StoryRoute
+  '/mal1688/': typeof Mal1688IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/mal1688'
+  fullPaths:
+    | '/'
+    | '/mal1688'
+    | '/mal1688/academy'
+    | '/mal1688/lab'
+    | '/mal1688/pricing'
+    | '/mal1688/science'
+    | '/mal1688/solutions'
+    | '/mal1688/story'
+    | '/mal1688/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/mal1688'
-  id: '__root__' | '/' | '/mal1688'
+  to:
+    | '/'
+    | '/mal1688/academy'
+    | '/mal1688/lab'
+    | '/mal1688/pricing'
+    | '/mal1688/science'
+    | '/mal1688/solutions'
+    | '/mal1688/story'
+    | '/mal1688'
+  id:
+    | '__root__'
+    | '/'
+    | '/mal1688'
+    | '/mal1688/academy'
+    | '/mal1688/lab'
+    | '/mal1688/pricing'
+    | '/mal1688/science'
+    | '/mal1688/solutions'
+    | '/mal1688/story'
+    | '/mal1688/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Mal1688Route: typeof Mal1688Route
+  Mal1688Route: typeof Mal1688RouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +154,84 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Mal1688RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mal1688/': {
+      id: '/mal1688/'
+      path: '/'
+      fullPath: '/mal1688/'
+      preLoaderRoute: typeof Mal1688IndexRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/academy': {
+      id: '/mal1688/academy'
+      path: '/academy'
+      fullPath: '/mal1688/academy'
+      preLoaderRoute: typeof Mal1688AcademyRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/lab': {
+      id: '/mal1688/lab'
+      path: '/lab'
+      fullPath: '/mal1688/lab'
+      preLoaderRoute: typeof Mal1688LabRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/pricing': {
+      id: '/mal1688/pricing'
+      path: '/pricing'
+      fullPath: '/mal1688/pricing'
+      preLoaderRoute: typeof Mal1688PricingRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/science': {
+      id: '/mal1688/science'
+      path: '/science'
+      fullPath: '/mal1688/science'
+      preLoaderRoute: typeof Mal1688ScienceRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/solutions': {
+      id: '/mal1688/solutions'
+      path: '/solutions'
+      fullPath: '/mal1688/solutions'
+      preLoaderRoute: typeof Mal1688SolutionsRouteImport
+      parentRoute: typeof Mal1688Route
+    }
+    '/mal1688/story': {
+      id: '/mal1688/story'
+      path: '/story'
+      fullPath: '/mal1688/story'
+      preLoaderRoute: typeof Mal1688StoryRouteImport
+      parentRoute: typeof Mal1688Route
+    }
   }
 }
 
+interface Mal1688RouteChildren {
+  Mal1688AcademyRoute: typeof Mal1688AcademyRoute
+  Mal1688LabRoute: typeof Mal1688LabRoute
+  Mal1688PricingRoute: typeof Mal1688PricingRoute
+  Mal1688ScienceRoute: typeof Mal1688ScienceRoute
+  Mal1688SolutionsRoute: typeof Mal1688SolutionsRoute
+  Mal1688StoryRoute: typeof Mal1688StoryRoute
+  Mal1688IndexRoute: typeof Mal1688IndexRoute
+}
+
+const Mal1688RouteChildren: Mal1688RouteChildren = {
+  Mal1688AcademyRoute: Mal1688AcademyRoute,
+  Mal1688LabRoute: Mal1688LabRoute,
+  Mal1688PricingRoute: Mal1688PricingRoute,
+  Mal1688ScienceRoute: Mal1688ScienceRoute,
+  Mal1688SolutionsRoute: Mal1688SolutionsRoute,
+  Mal1688StoryRoute: Mal1688StoryRoute,
+  Mal1688IndexRoute: Mal1688IndexRoute,
+}
+
+const Mal1688RouteWithChildren =
+  Mal1688Route._addFileChildren(Mal1688RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Mal1688Route: Mal1688Route,
+  Mal1688Route: Mal1688RouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
