@@ -1,4 +1,6 @@
-# dhl1688-vercel
+# dahua_project_002
+
+（原專案名稱：`dhl1688-vercel`）
 
 這是一個以 **TanStack Start、React、Vite 與 Nitro** 建立的多頁式 SSR／品牌網站專案，包含大華醫事檢驗所的預防醫學介紹，以及 `/mal1688` 路徑下的 MitoActiveLife／MAL 活「粒」生活產品內容與教育頁面。
 
